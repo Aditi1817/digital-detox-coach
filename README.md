@@ -1,6 +1,6 @@
 # 🧠 AI Digital Detox Coach
 
-[![Hugging Face](https://img.shields.io/badge/🤗%20Hugging%20Face-Spaces-yellow)](https://huggingface.co/spaces)
+[![Hugging Face](https://img.shields.io/badge/🤗%20Hugging%20Face-Spaces-yellow)](https://huggingface.co/spaces/Aditishedbale/digital-detox-coach)
 [![PyTorch](https://img.shields.io/badge/PyTorch-2.0-red)](https://pytorch.org)
 [![OpenEnv](https://img.shields.io/badge/OpenEnv-Compatible-green)](https://github.com/open-env)
 [![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
@@ -41,4 +41,37 @@ An **AI-powered Digital Detox Coach** that:
 │ + Study time │ - Social media abuse │
 │ + Sleep quality │ - Late night usage │
 └─────────────────────────────────────────────────────┘
+
+## 🚀 Live Demo
+
+Hugging Face Space:
+https://huggingface.co/spaces/Aditishedbale/digital-detox-coach
+
+GitHub Repository:
+https://github.com/Aditi1817/digital-detox-coach
+
+## 🛠️ Installation
+
+Clone repository
+
+git clone https://github.com/yourusername/digital-detox-coach
+
+Install dependencies
+
+pip install -r requirements.txt
+
+Run project
+
+streamlit run app.py
+
+## 🧰 Tech Stack
+
+Python  
+PyTorch  
+Reinforcement Learning  
+OpenEnv  
+Streamlit  
+Hugging Face Spaces  
+NumPy  
+Matplotlib
 

@@ -7,6 +7,12 @@ streamlit>=1.25.0
 plotly>=5.17.0
 pandas>=2.0.0
 tqdm>=4.65.0
+openenv
+
+# OpenEnv API requirements
+flask>=2.3.0
+flask-cors>=4.0.0
+gunicorn>=21.0.0
 
 # OpenEnv specific
 gymnasium>=0.29.0

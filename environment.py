@@ -8,7 +8,6 @@ from typing import Tuple, Dict, Any
 import gym
 from gym import spaces
 import random
-
 class DigitalDetoxEnv(gym.Env):
     """
     Custom Environment for Digital Detox Coach

@@ -1,0 +1,50 @@
+name: digital-detox-coach
+version: 1.0.0
+description: AI Digital Detox Coach using Reinforcement Learning to reduce screen time
+
+environment:
+  class: DigitalDetoxEnv
+  module: environment
+  
+  observation_space:
+    name: DigitalDetoxState
+    type: Box
+    shape: [5]
+    low: [0, 0, 0, 0, 0]
+    high: [24, 12, 12, 100, 24]
+    
+  action_space:
+    name: DigitalDetoxActions
+    type: Discrete
+    n: 5
+    
+  metadata:
+    render_modes: ["human", "rgb_array"]
+    render_fps: 4
+    
+  reward_threshold: 100
+  max_episode_steps: 24
+
+tasks:
+  - id: detox
+    description: Learn optimal digital behavior to reduce screen time
+    reward_threshold: 500
+    timestep_limit: 24
+    
+  - id: productivity
+    description: Maximize productivity while maintaining healthy habits
+    reward_threshold: 400
+    timestep_limit: 24
+
+metrics:
+  - screen_time
+  - study_time
+  - sleep_time
+  - productivity_score
+  - social_media_usage
+  
+tags:
+  - reinforcement-learning
+  - digital-wellness
+  - pytorch
+  - dqn

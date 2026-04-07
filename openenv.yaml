@@ -1,101 +1,17 @@
 name: digital-detox-coach
 version: 1.0.0
-description: AI Digital Detox Coach using RL to reduce screen time
+description: AI Digital Detox Coach
 
 environment:
-  class: DigitalDetoxEnv
   module: environment
-  inference_file: inference.py
-  
-  observation_space:
-    name: DigitalState
-    type: Box
-    shape: [5]
-    low: [0, 0, 0, 0, 0]
-    high: [24, 12, 12, 100, 24]
-    features:
-      - screen_time
-      - study_time
-      - sleep_time
-      - productivity_score
-      - social_media_usage
-    
-  action_space:
-    name: DigitalActions
-    type: Discrete
-    n: 5
-    actions:
-      - allow_app
-      - block_app
-      - suggest_study
-      - suggest_break
-      - suggest_sleep
-    
-  metadata:
-    render_modes: ["human"]
-    render_fps: 4
-    
-  reward_threshold: 100
-  max_episode_steps: 24
+  class: DigitalDetoxEnv
 
-tasks:
-  - id: detox
-    description: Reduce screen time to healthy levels
-    reward_threshold: 500
-    timestep_limit: 24
-    metrics:
-      - screen_time
-      - productivity_score
-      
-  - id: productivity
-    description: Maximize study time and productivity
-    reward_threshold: 400
-    timestep_limit: 24
-    metrics:
-      - study_time
-      - productivity_score
-      
-  - id: sleep_health
-    description: Maintain healthy sleep patterns
-    reward_threshold: 300
-    timestep_limit: 24
-    metrics:
-      - sleep_time
+agent:
+  module: agent  
+  class: DQNAgent
 
-metrics:
-  - name: screen_time
-    description: Hours of screen time per day
-    unit: hours
-    target_min: 0
-    target_max: 4
-    
-  - name: study_time
-    description: Hours of study/productive work
-    unit: hours
-    target_min: 4
-    target_max: 12
-    
-  - name: sleep_time
-    description: Hours of sleep
-    unit: hours
-    target_min: 7
-    target_max: 9
-    
-  - name: productivity_score
-    description: Productivity percentage
-    unit: percentage
-    target_min: 80
-    target_max: 100
-    
-  - name: social_media_usage
-    description: Hours on social media
-    unit: hours
-    target_min: 0
-    target_max: 2
+inference:
+  file: inference.py
 
-tags:
-  - reinforcement-learning
-  - digital-wellness
-  - pytorch
-  - dqn
-  - healthcare
+spaces:
+  huggingface: https://huggingface.co/spaces/Aditishedbale/digital-detox-coach

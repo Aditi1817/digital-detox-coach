@@ -1,17 +1,11 @@
-FROM python:3.10-slim
-
-# Set environment variables
-ENV PYTHONUNBUFFERED=1
-ENV API_BASE_URL=""
-ENV MODEL_NAME="digital-detox-coach"
-ENV HF_TOKEN=""
+FROM python:3.9-slim
 
 WORKDIR /app
 
 # Install system dependencies
-RUN apt-get update && apt-get install -y \
-    build-essential \
-    curl \
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    gcc \
+    g++ \
     && rm -rf /var/lib/apt/lists/*
 
 # Copy requirements first for better caching
@@ -21,14 +15,15 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy all application files
 COPY . .
 
-# Create results directory
-RUN mkdir -p results
+# Make start script executable
+RUN chmod +x start.sh
 
-# Make inference script executable
-RUN chmod +x inference.py
+# Expose the port
+EXPOSE 7860
 
-# Expose port for API
-EXPOSE 5000
+# Health check
+HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
+    CMD curl -f http://localhost:${PORT:-7860}/health || exit 1
 
-# Run OpenEnv API server (for hackathon validation)
-CMD python openenv_api.py
+# Start the application
+CMD ["./start.sh"]

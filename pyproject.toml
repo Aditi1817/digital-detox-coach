@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "digital-detox-coach"
+version = "1.0.0"
+description = "AI Digital Detox Coach using Reinforcement Learning and OpenEnv"
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+authors = [
+    {name = "Aditi Shinde", email = "aditi@example.com"}
+]
+keywords = ["reinforcement-learning", "digital-wellness", "openenv", "ai-coach"]
+
+dependencies = [
+    "torch>=2.0.0",
+    "numpy>=1.24.0",
+    "gymnasium>=0.29.0",
+    "flask>=2.3.0",
+    "flask-cors>=4.0.0",
+    "gunicorn>=20.1.0",
+    "requests>=2.31.0",
+    "openai>=1.0.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0", "black>=23.0"]
+
+[project.urls]
+Homepage = "https://github.com/Aditi1817/digital-detox-coach"
+"Hugging Face Space" = "https://huggingface.co/spaces/Aditishedbale/digital-detox-coach"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["agent", "environment", "app", "inference"]
+
+[tool.black]
+line-length = 88
+target-version = ['py39']
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+testpaths = ["tests"]

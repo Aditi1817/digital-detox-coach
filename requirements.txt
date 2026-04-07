@@ -6,3 +6,4 @@ flask-cors>=4.0.0
 gunicorn>=20.1.0
 requests>=2.31.0
 openai>=1.0.0
+openenv-core>=0.2.0

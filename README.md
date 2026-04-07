@@ -1,14 +1,14 @@
 ---
-title: AI Digital Detox Coach
+title: Digital Detox Coach
 emoji: 🧘
-colorFrom: green
-colorTo: blue
+colorFrom: blue
+colorTo: green
 sdk: docker
-sdk_version: "1.0"
-app_file: app.py
+app_port: 7860
+sdk_version: 3.9
 pinned: false
+license: mit
 ---
-
 # AI Digital Detox Coach
 
 An intelligent digital wellness coach that uses Reinforcement Learning to help reduce screen time and promote healthy digital habits.

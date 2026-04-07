@@ -602,7 +602,10 @@ def status():
         "state_size": state_size
     })
 
-if __name__ == '__main__':
+# ... (all your existing imports, routes, and other code above) ...
+
+def main():
+    """Entry point for digital-detox command"""
     print(f"🚀 Starting Flask app on port {PORT}")
     print(f"📍 Web Interface: http://0.0.0.0:{PORT}/")
     print(f"🔄 Reset endpoint: http://0.0.0.0:{PORT}/reset")
@@ -614,3 +617,6 @@ if __name__ == '__main__':
         debug=False,
         threaded=True
     )
+
+if __name__ == "__main__":
+    main()

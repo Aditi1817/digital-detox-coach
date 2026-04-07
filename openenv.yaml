@@ -1,17 +1,30 @@
 name: digital-detox-coach
-version:  1.0.0
-description: AI Digital Detox Coach
+version: 1.0.0
+description: AI Digital Detox Coach using Reinforcement Learning
+
+mode: multi  # Add this line - important!
 
 environment:
   module: environment
   class: DigitalDetoxEnv
 
 agent:
-  module: agent  
+  module: agent
   class: DQNAgent
 
 inference:
   file: inference.py
+  function: run_inference
 
 spaces:
   huggingface: https://huggingface.co/spaces/Aditishedbale/digital-detox-coach
+
+build:
+  python_version: "3.9"
+  dependencies:
+    - torch>=2.0.0
+    - numpy>=1.24.0
+    - gymnasium>=0.29.0
+    - flask>=2.3.0
+    - flask-cors>=4.0.0
+    - gunicorn>=20.1.0
